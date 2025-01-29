@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmatic operations</title>
+</head>
+<script>
+    function arith(){
+        let op=document.getElementById("operations").value
+        let e1=parseFloat(document.getElementById("n1").value)
+        let e2=parseFloat(document.getElementById("n2").value)
+        let res=document.getElementById("result");
+        if(isNaN(e1)||isNaN(e2)){
+            res.innerText=`Note:Please enter two values`;
+            res.style.color="red";
+            return; 
+        }
+        if(op==="option1"){
+            function add(e1,e2){
+                return e1+e2;
+            }
+            addition=add(e1,e2);
+            res.innerText=`The addition of two numbers is \n  ${addition}`
+            res.style.color="purple";
+        }else if(op==="option2"){
+            function sub(e1,e2){
+                return e1-e2;
+            }
+            substraction=sub(e1,e2);
+            res.innerText=`The subtraction of two numbers is \n ${substraction}`
+            res.style.color="purple";
+        }else if(op==="option3"){
+            function multi(e1,e2){
+                return e1*e2;
+            }
+            multiplication=multi(e1,e2);
+            res.innerText=`The multiplication of two numbers is \n ${multiplication}`
+            res.style.color="purple";
+        }else if(op==="option4"){
+            function Divide(e1,e2){
+                if(e2 === 0){
+                    res.innerText= "The zero is not divisible by any number"; 
+                    res.style.color="red";
+                    return;
+                }else{
+                    let division=e1/e2;
+                    res.innerText=`The division of two numbers is \n ${division}`
+                    res.style.color="purple";
+                    return division; 
+                }
+            }
+            let division=Divide(e1,e2);
+        }else{
+            res.innerHTML=`Note:Please select the option......`
+            res.style.color="red";
+        }
+    }
+</script>
+<style>
+    #result{
+        background-color:rgb(64, 255, 0);
+        color:rgb(30, 111, 210);
+        text-align: center;
+        font-size:40px;
+    }
+    .c{
+        text-align: center;
+        font-size: 30px;
+        padding: 10%;
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-bottom: 100px;
+        border: 20px solid black;
+        background-color: pink;
+    }
+    body{
+        background-color: yellow;
+    }
+</style>
+<body>
+<marquee behavior="alternate" direction="right" height="100%" width="100%" bgcolor="blue" scrollamount="15s" style="color: white;padding: 30px;font-size: 30px;">Simple calculation using basic arithmatic operations</marquee>
+<div class="c">
+
+    Select the operation:
+<select title="basic operations" style="text-align:center;font-size:30px;" id="operations">
+    <option value="option5">Arithmatic operations</option>
+    <option value="option1">Addition</option>
+    <option value="option2">Substraction</option>
+    <option value="option3">Multiplication</option>
+    <option value="option4">Division</option>
+</select>
+<br>
+<br>
+<label>Enter first number</label><br>
+<input type="number" id="n1" placeholder="Number 1" style="font-size: 30px;text-align:center;"><br><br>
+<label>Enter second number</label><br>
+<input type="number" id="n2" placeholder="Number 2" style="font-size: 30px;text-align:center;"><br><br>
+
+<button onclick="arith()" style="font-size: 30px;">Submit</button><br>
+<p id="result"></p>
+</div>
+</body>
+</html>
